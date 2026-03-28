@@ -1,6 +1,4 @@
-import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
-import { services } from "@/data/services";
+import { ContactForm } from "@/components/sections/ContactForm";
 
 export const metadata = {
   title: "Contact"
@@ -23,50 +21,7 @@ export default function ContactPage() {
         </div>
       </section>
       <section className="px-6 py-16 sm:px-10 lg:px-16">
-        <Card className="max-w-3xl">
-          <form className="grid gap-6">
-            <div className="grid gap-4 md:grid-cols-2">
-              <label className="grid gap-2 text-sm font-medium text-slate-700">
-                Name
-                <input
-                  type="text"
-                  placeholder="Your full name"
-                  className="rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-primary-500 focus:outline-none"
-                />
-              </label>
-              <label className="grid gap-2 text-sm font-medium text-slate-700">
-                Email
-                <input
-                  type="email"
-                  placeholder="you@example.com"
-                  className="rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-primary-500 focus:outline-none"
-                />
-              </label>
-            </div>
-            <label className="grid gap-2 text-sm font-medium text-slate-700">
-              Service Interested
-              <select className="rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-primary-500 focus:outline-none">
-                <option>Select a service</option>
-                {services.map((service) => (
-                  <option key={service.slug} value={service.slug}>
-                    {service.title}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label className="grid gap-2 text-sm font-medium text-slate-700">
-              Message
-              <textarea
-                rows={5}
-                placeholder="Tell us about your requirements"
-                className="rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-primary-500 focus:outline-none"
-              />
-            </label>
-            <Button type="submit" className="w-full sm:w-auto">
-              Submit Inquiry
-            </Button>
-          </form>
-        </Card>
+        <ContactForm />
       </section>
     </div>
   );

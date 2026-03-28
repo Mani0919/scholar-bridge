@@ -18,3 +18,5 @@ export function Card({ className, ...props }: CardProps) {
     />
   );
 }
+
+//fixed

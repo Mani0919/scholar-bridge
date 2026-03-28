@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: only light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-slate-900 antialiased;
+  font-feature-settings: "liga" 1, "kern" 1;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-poppins), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+}
+
+.section-grid {
+  @apply grid gap-6 lg:gap-8;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+}
+
+.link-underline {
+  background-image: linear-gradient(120deg, rgba(79, 70, 229, 0.4), rgba(124, 58, 237, 0.4));
+  background-size: 100% 0.2em;
+  background-position: 0 88%;
+  background-repeat: no-repeat;
+}
+
+.text-balance {
+  text-wrap: balance;
+}

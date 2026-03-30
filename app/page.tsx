@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
+import { ImageCarousel } from "@/components/sections/ImageCarousel";
 import { ServicesPreview } from "@/components/sections/ServicesPreview";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { CTA } from "@/components/sections/CTA";
@@ -28,6 +29,7 @@ export default function HomePage() {
   return (
     <div>
       <Hero />
+      <ImageCarousel />
       <ServicesPreview />
       <section className="px-6 py-16 sm:px-10 lg:px-16">
         <div className="space-y-3">

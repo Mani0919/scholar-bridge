@@ -18,6 +18,7 @@ export function ContactForm() {
     const formData = new FormData(form);
     const name = String(formData.get("name") || "");
     const email = String(formData.get("email") || "");
+    const phone = String(formData.get("phone") || "");
     const service = String(formData.get("service") || "");
     const message = String(formData.get("message") || "");
     setStatus("loading");
@@ -27,7 +28,7 @@ export function ContactForm() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, service, message })
+        body: JSON.stringify({ name, email, phone, service, message })
       });
 
       if (!response.ok) {
@@ -46,7 +47,7 @@ export function ContactForm() {
   return (
     <Card className="mx-auto max-w-3xl w-full">
       <form className="grid gap-6" onSubmit={handleSubmit}>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-3">
           <label className="grid gap-2 text-sm font-medium text-slate-700">
             Name
             <input
@@ -54,6 +55,15 @@ export function ContactForm() {
               placeholder="Your full name"
               name="name"
               required
+              className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-primary-500 focus:outline-none"
+            />
+          </label>
+          <label className="grid gap-2 text-sm font-medium text-slate-700">
+            Phone
+            <input
+              type="tel"
+              placeholder="+91 555 123 4567"
+              name="phone"
               className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-primary-500 focus:outline-none"
             />
           </label>

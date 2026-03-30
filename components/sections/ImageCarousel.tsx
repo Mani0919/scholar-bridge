@@ -4,12 +4,12 @@ import { useEffect, useMemo, useState } from "react";
 
 const slides = [
   {
-    src: "/svgs/5.svg",
+    src: "/svgs/1.svg",
     title: "Journal-ready manuscripts",
     description: "Publication-focused editing and formatting."
   },
   {
-    src: "/svgs/6.svg",
+    src: "/svgs/2.svg",
     title: "Research integrity",
     description: "Ethical compliance and verified citations."
   },
@@ -19,7 +19,7 @@ const slides = [
     description: "Dedicated teams across regions and time zones."
   },
   {
-    src: "/svgs/8.svg",
+    src: "/svgs/4.svg",
     title: "Fast delivery",
     description: "Clear milestones with predictable timelines."
   }

@@ -6,6 +6,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { Menu, X, GraduationCap, Send, Sparkles, ChevronDown, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { countries } from "@/data/countries";
+import { services } from "@/data/services";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -100,6 +101,50 @@ export function Navbar() {
                 link.href === "/"
                   ? pathname === "/"
                   : pathname.startsWith(link.href);
+              const isServices = link.href === "/services";
+
+              if (isServices) {
+                return (
+                  <div key={link.href} className="relative group">
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "relative rounded-lg px-4 py-2 text-[0.82rem] font-medium transition-all duration-300",
+                        isActive
+                          ? "text-primary-600"
+                          : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"
+                      )}
+                    >
+                      {link.label}
+                      <ChevronDown
+                        size={14}
+                        className="ml-1 inline-block translate-y-[1px] text-slate-400 transition-transform duration-200 group-hover:rotate-180"
+                      />
+                      {isActive && (
+                        <span className="absolute bottom-0.5 left-1/2 h-[2px] w-5 -translate-x-1/2 rounded-full bg-gradient-to-r from-primary-500 to-accent-500" />
+                      )}
+                    </Link>
+
+                    {/* Services dropdown (desktop hover) */}
+                    <div className="pointer-events-none absolute left-1/2 top-full z-40 mt-2 w-72 -translate-x-1/2 -translate-y-1 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+                      <div className="rounded-2xl border border-slate-100 bg-white/95 p-2 shadow-xl backdrop-blur-md">
+                        <div className="max-h-80 overflow-auto py-1">
+                          {services.map((service) => (
+                            <Link
+                              key={service.slug}
+                              href={`/services/${service.slug}`}
+                              className="block rounded-lg px-3 py-2 text-[0.82rem] text-slate-600 transition-colors duration-200 hover:bg-slate-50 hover:text-slate-900"
+                            >
+                              {service.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
               return (
                 <Link
                   key={link.href}

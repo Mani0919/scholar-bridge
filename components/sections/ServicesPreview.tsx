@@ -55,7 +55,7 @@ export function ServicesPreview() {
         {services.slice(0, 6).map((service) => (
           <motion.div key={service.slug} variants={item}>
             <Link href={`/services/${service.slug}`}>
-              <Card className="h-full">
+              <Card className="h-full border border-slate-100/80 bg-gradient-to-br from-white via-primary-50/40 to-accent-50/40">
                 <h3 className="text-lg font-semibold text-slate-900">
                   {service.title}
                 </h3>

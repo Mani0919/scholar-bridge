@@ -27,8 +27,12 @@ export default function ServicesPage() {
       <section className="px-6 py-16 sm:px-10 lg:px-16">
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => (
-            <Link key={service.slug} href={`/services/${service.slug}`}>
-              <Card className="h-full">
+            <Link
+              key={service.slug}
+              href={`/services/${service.slug}`}
+              className="rounded-2xl bg-gradient-to-br from-primary-200/50 via-accent-200/30 to-primary-100/40 p-[1px] transition-transform duration-300 hover:-translate-y-1"
+            >
+              <Card className="h-full border border-slate-100/80 bg-white">
                 <h3 className="text-lg font-semibold text-slate-900">
                   {service.title}
                 </h3>

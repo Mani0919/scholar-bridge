@@ -13,15 +13,16 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/blogs", label: "Blogs" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [admissionsOpen, setAdmissionsOpen] = useState(false);
+  const [phdAdmissionsOpen, setPhdAdmissionsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [phdSubmitted, setPhdSubmitted] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("");
   const [countrySearch, setCountrySearch] = useState("");
   const [countryDropdownOpen, setCountryDropdownOpen] = useState(false);
@@ -51,11 +52,11 @@ export function Navbar() {
 
   /* lock body scroll when modal is open */
   useEffect(() => {
-    document.body.style.overflow = admissionsOpen ? "hidden" : "";
+    document.body.style.overflow = admissionsOpen || phdAdmissionsOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [admissionsOpen]);
+  }, [admissionsOpen, phdAdmissionsOpen]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -63,6 +64,15 @@ export function Navbar() {
     setTimeout(() => {
       setAdmissionsOpen(false);
       setSubmitted(false);
+    }, 2200);
+  };
+
+  const handlePhdSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setPhdSubmitted(true);
+    setTimeout(() => {
+      setPhdAdmissionsOpen(false);
+      setPhdSubmitted(false);
     }, 2200);
   };
 
@@ -87,9 +97,9 @@ export function Navbar() {
               <GraduationCap size={18} strokeWidth={2.2} />
             </span>
             <span className="text-[1.1rem] font-bold tracking-tight text-slate-900">
-              Scholar
+              The Paper{" "}
               <span className="bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
-                Bridge
+                Publications
               </span>
             </span>
           </Link>
@@ -163,6 +173,13 @@ export function Navbar() {
                 </Link>
               );
             })}
+            <button
+              type="button"
+              onClick={() => setPhdAdmissionsOpen(true)}
+              className="relative rounded-lg px-4 py-2 text-[0.82rem] font-medium transition-all duration-300 text-slate-500 hover:bg-slate-50 hover:text-slate-900"
+            >
+              PH-D Admissions
+            </button>
           </nav>
 
           {/* ── Desktop CTA Buttons ── */}
@@ -242,6 +259,19 @@ export function Navbar() {
                   </Link>
                 );
               })}
+              <button
+                type="button"
+                onClick={() => {
+                  setOpen(false);
+                  setPhdAdmissionsOpen(true);
+                }}
+                className="rounded-xl px-4 py-3 text-left text-[0.9rem] font-medium transition-all duration-300 text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                style={{
+                  transitionDelay: open ? `${navLinks.length * 50}ms` : "0ms",
+                }}
+              >
+                PH-D Admissions
+              </button>
             </div>
             <div className="mt-5 flex flex-col gap-3">
               <Link
@@ -503,6 +533,188 @@ export function Navbar() {
                   <button
                     type="button"
                     onClick={() => setAdmissionsOpen(false)}
+                    className="rounded-xl border border-slate-200 px-5 py-2.5 text-sm font-semibold text-slate-600 transition-all duration-200 hover:border-slate-300 hover:text-slate-900"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="group flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary-500 to-accent-500 px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary-500/25"
+                  >
+                    Submit Application
+                    <Send
+                      size={14}
+                      className="transition-transform duration-300 group-hover:translate-x-0.5"
+                    />
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* ───── PH-D Admissions Modal ───── */}
+      {phdAdmissionsOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-slate-900/60 px-4 py-6 backdrop-blur-sm animate-in fade-in duration-300"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="phd-admissions-title"
+          onClick={() => {
+            if (!phdSubmitted) setPhdAdmissionsOpen(false);
+          }}
+        >
+          <div
+            className="relative w-full max-w-lg overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-slate-900/5 animate-in slide-in-from-bottom-4 zoom-in-95 duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* gradient header */}
+            <div className="relative overflow-hidden bg-gradient-to-r from-primary-500 to-accent-500 px-6 pb-5 pt-6">
+              <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10" />
+              <div className="absolute -bottom-4 -left-4 h-20 w-20 rounded-full bg-white/10" />
+              <div className="relative flex items-start justify-between">
+                <div>
+                  <h2
+                    id="phd-admissions-title"
+                    className="flex items-center gap-2 text-lg font-bold text-white"
+                  >
+                    <GraduationCap size={20} />
+                    PH-D Admissions
+                  </h2>
+                  <p className="mt-1.5 text-[0.8rem] leading-relaxed text-white/80">
+                    Share your details and we&apos;ll guide you through the next
+                    steps.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setPhdAdmissionsOpen(false)}
+                  className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-white/20 text-white transition-colors duration-200 hover:bg-white/30"
+                  aria-label="Close form"
+                >
+                  <X size={16} />
+                </button>
+              </div>
+            </div>
+
+            {/* form body */}
+            {phdSubmitted ? (
+              <div className="flex flex-col items-center justify-center gap-4 px-6 py-16">
+                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-green-50 text-green-500">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="h-8 w-8"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                </span>
+                <p className="text-lg font-semibold text-slate-900">
+                  Application Submitted!
+                </p>
+                <p className="text-sm text-slate-500">
+                  We&apos;ll reach out to you shortly.
+                </p>
+              </div>
+            ) : (
+              <form className="space-y-5 px-6 pb-6 pt-6" onSubmit={handlePhdSubmit}>
+                {/* Name */}
+                <div className="group relative">
+                  <input
+                    id="phd-name"
+                    name="name"
+                    type="text"
+                    required
+                    placeholder=" "
+                    className="peer w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 pb-2.5 pt-5 text-sm text-slate-900 transition-all duration-200 focus:border-primary-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-100"
+                  />
+                  <label
+                    htmlFor="phd-name"
+                    className="pointer-events-none absolute left-4 top-2 text-[0.65rem] font-semibold uppercase tracking-wider text-slate-400 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-xs peer-placeholder-shown:font-medium peer-placeholder-shown:normal-case peer-placeholder-shown:tracking-normal peer-placeholder-shown:text-slate-400 peer-focus:top-2 peer-focus:text-[0.65rem] peer-focus:font-semibold peer-focus:uppercase peer-focus:tracking-wider peer-focus:text-primary-500"
+                  >
+                    Full Name
+                  </label>
+                </div>
+
+                {/* Email */}
+                <div className="group relative">
+                  <input
+                    id="phd-email"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder=" "
+                    className="peer w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 pb-2.5 pt-5 text-sm text-slate-900 transition-all duration-200 focus:border-primary-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-100"
+                  />
+                  <label
+                    htmlFor="phd-email"
+                    className="pointer-events-none absolute left-4 top-2 text-[0.65rem] font-semibold uppercase tracking-wider text-slate-400 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-xs peer-placeholder-shown:font-medium peer-placeholder-shown:normal-case peer-placeholder-shown:tracking-normal peer-placeholder-shown:text-slate-400 peer-focus:top-2 peer-focus:text-[0.65rem] peer-focus:font-semibold peer-focus:uppercase peer-focus:tracking-wider peer-focus:text-primary-500"
+                  >
+                    Email Address
+                  </label>
+                </div>
+
+                {/* Phone + Research Area in a row */}
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div className="group relative">
+                    <input
+                      id="phd-phone"
+                      name="phone"
+                      type="tel"
+                      placeholder=" "
+                      className="peer w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 pb-2.5 pt-5 text-sm text-slate-900 transition-all duration-200 focus:border-primary-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-100"
+                    />
+                    <label
+                      htmlFor="phd-phone"
+                      className="pointer-events-none absolute left-4 top-2 text-[0.65rem] font-semibold uppercase tracking-wider text-slate-400 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-xs peer-placeholder-shown:font-medium peer-placeholder-shown:normal-case peer-placeholder-shown:tracking-normal peer-placeholder-shown:text-slate-400 peer-focus:top-2 peer-focus:text-[0.65rem] peer-focus:font-semibold peer-focus:uppercase peer-focus:tracking-wider peer-focus:text-primary-500"
+                    >
+                      Phone
+                    </label>
+                  </div>
+                  <div className="group relative">
+                    <input
+                      id="phd-research"
+                      name="researchArea"
+                      type="text"
+                      placeholder=" "
+                      className="peer w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 pb-2.5 pt-5 text-sm text-slate-900 transition-all duration-200 focus:border-primary-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-100"
+                    />
+                    <label
+                      htmlFor="phd-research"
+                      className="pointer-events-none absolute left-4 top-2 text-[0.65rem] font-semibold uppercase tracking-wider text-slate-400 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-xs peer-placeholder-shown:font-medium peer-placeholder-shown:normal-case peer-placeholder-shown:tracking-normal peer-placeholder-shown:text-slate-400 peer-focus:top-2 peer-focus:text-[0.65rem] peer-focus:font-semibold peer-focus:uppercase peer-focus:tracking-wider peer-focus:text-primary-500"
+                    >
+                      Research Area
+                    </label>
+                  </div>
+                </div>
+
+                {/* Additional Info */}
+                <div className="group relative">
+                  <textarea
+                    id="phd-info"
+                    name="additionalInfo"
+                    rows={3}
+                    placeholder=" "
+                    className="peer w-full resize-none rounded-xl border border-slate-200 bg-slate-50/50 px-4 pb-2.5 pt-5 text-sm text-slate-900 transition-all duration-200 focus:border-primary-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-100"
+                  />
+                  <label
+                    htmlFor="phd-info"
+                    className="pointer-events-none absolute left-4 top-2 text-[0.65rem] font-semibold uppercase tracking-wider text-slate-400 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-xs peer-placeholder-shown:font-medium peer-placeholder-shown:normal-case peer-placeholder-shown:tracking-normal peer-placeholder-shown:text-slate-400 peer-focus:top-2 peer-focus:text-[0.65rem] peer-focus:font-semibold peer-focus:uppercase peer-focus:tracking-wider peer-focus:text-primary-500"
+                  >
+                    Additional Information
+                  </label>
+                </div>
+
+                {/* Actions */}
+                <div className="flex flex-col-reverse gap-3 pt-1 sm:flex-row sm:justify-end">
+                  <button
+                    type="button"
+                    onClick={() => setPhdAdmissionsOpen(false)}
                     className="rounded-xl border border-slate-200 px-5 py-2.5 text-sm font-semibold text-slate-600 transition-all duration-200 hover:border-slate-300 hover:text-slate-900"
                   >
                     Cancel

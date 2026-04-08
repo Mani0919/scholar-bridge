@@ -12,7 +12,7 @@ export function Footer() {
     <footer className="border-t border-slate-100 bg-slate-50 px-6 py-12 sm:px-10 lg:px-16">
       <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr_1fr]">
         <div className="space-y-4">
-          <div className="text-lg font-semibold text-slate-900">ScholarBridge</div>
+          <div className="text-lg font-semibold text-slate-900">The Paper Publications</div>
           <p className="text-sm text-slate-600">
             Premium academic services for researchers, scholars, and institutions.
             We combine human expertise with rigorous quality checks for global
@@ -32,14 +32,14 @@ export function Footer() {
         <div className="space-y-3">
           <p className="text-sm font-semibold text-slate-900">Contact</p>
           <div className="space-y-2 text-sm text-slate-600">
-            <p>support@scholarbridge.com</p>
-            <p>+1 (315) 555-0182</p>
+            <p>researchpublication381@gmail.com</p>
+            <p>+91 85198 54871</p>
             <p>Global delivery with 24/7 academic coordination.</p>
           </div>
         </div>
       </div>
       <div className="mt-10 text-xs text-slate-500">
-        © {new Date().getFullYear()} ScholarBridge Academic Services. All rights reserved.
+        © {new Date().getFullYear()} The Paper Publications Services. All rights reserved.
       </div>
     </footer>
   );

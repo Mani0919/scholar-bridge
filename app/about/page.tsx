@@ -38,7 +38,7 @@ export default function AboutPage() {
               Academic excellence with a premium service model
             </h1>
             <p className="text-sm text-slate-600">
-              ScholarBridge partners with universities, labs, and individual researchers
+              The Paper Publications partners with universities, labs, and individual researchers
               to elevate academic output. Our process blends strategic planning, deep
               subject expertise, and meticulous editing.
             </p>

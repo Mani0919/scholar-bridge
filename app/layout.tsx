@@ -13,12 +13,37 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: "ScholarBridge Academic Services",
-    template: "%s | ScholarBridge"
+    default: "The Paper Publications | Research Journals & Articles",
+    template: "%s | The Paper Publications"
   },
   description:
-    "Premium academic writing, publication support, and admission assistance for global researchers.",
-  metadataBase: new URL("https://scholarbridge.example.com")
+    "Publish and explore peer-reviewed research journals, academic papers, and scholarly articles with The Paper Publications.",
+  keywords: [
+    "research journals",
+    "academic papers",
+    "scholarly articles",
+    "publish research paper",
+    "peer-reviewed journals",
+    "international journal publication",
+    "research paper publication platform",
+    "The Paper Publications"
+  ],
+  metadataBase: new URL("https://thepaperpublications.com"),
+  openGraph: {
+    title: "The Paper Publications | Research Journals & Articles",
+    description:
+      "Publish and explore peer-reviewed research journals, academic papers, and scholarly articles.",
+    url: "https://thepaperpublications.com",
+    siteName: "The Paper Publications",
+    locale: "en_US",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Paper Publications | Research Journals & Articles",
+    description:
+      "Publish and explore peer-reviewed research journals, academic papers, and scholarly articles."
+  }
 };
 
 export default function RootLayout({

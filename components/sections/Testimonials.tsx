@@ -8,7 +8,7 @@ const testimonials = [
     name: "Dr. Mira Lawson",
     role: "Associate Professor, Biomedical Sciences",
     quote:
-      "ScholarBridge transformed my raw draft into a publishable manuscript in two weeks. The journal feedback was overwhelmingly positive."
+      "The Paper Publications transformed my raw draft into a publishable manuscript in two weeks. The journal feedback was overwhelmingly positive."
   },
   {
     name: "Rahul Mehta",

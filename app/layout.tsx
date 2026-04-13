@@ -29,6 +29,17 @@ export const metadata: Metadata = {
     "The Paper Publications"
   ],
   metadataBase: new URL("https://thepaperpublications.com"),
+  alternates: {
+    canonical: "/"
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true
+    }
+  },
   openGraph: {
     title: "The Paper Publications | Research Journals & Articles",
     description:

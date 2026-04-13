@@ -28,7 +28,7 @@ export function ContactForm() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone, service, message })
+        body: JSON.stringify({ formType: "Contact / Service Inquiry", name, email, phone, service, message })
       });
 
       if (!response.ok) {

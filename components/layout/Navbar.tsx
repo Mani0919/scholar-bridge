@@ -58,8 +58,27 @@ export function Navbar() {
     };
   }, [admissionsOpen, phdAdmissionsOpen]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const name = String(formData.get("name") || "");
+    const email = String(formData.get("email") || "");
+    const phone = String(formData.get("phone") || "");
+    const country = String(formData.get("country") || "");
+    const additionalInfo = String(formData.get("additionalInfo") || "");
+
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ formType: "Abroad Admissions", name, email, phone, country, additionalInfo })
+      });
+    } catch (error) {
+      console.error(error);
+    }
+
     setSubmitted(true);
     setTimeout(() => {
       setAdmissionsOpen(false);
@@ -67,8 +86,27 @@ export function Navbar() {
     }, 2200);
   };
 
-  const handlePhdSubmit = (e: React.FormEvent) => {
+  const handlePhdSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const name = String(formData.get("name") || "");
+    const email = String(formData.get("email") || "");
+    const phone = String(formData.get("phone") || "");
+    const researchArea = String(formData.get("researchArea") || "");
+    const additionalInfo = String(formData.get("additionalInfo") || "");
+
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ formType: "PH-D Admissions", name, email, phone, researchArea, additionalInfo })
+      });
+    } catch (error) {
+      console.error(error);
+    }
+
     setPhdSubmitted(true);
     setTimeout(() => {
       setPhdAdmissionsOpen(false);

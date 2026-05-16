@@ -1,10 +1,14 @@
 import Link from "next/link";
 import { blogs } from "@/data/blogs";
 import { Card } from "@/components/ui/Card";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata = {
-  title: "Blogs"
-};
+export const metadata = pageMetadata({
+  title: "Blog | The Paper Publications",
+  description:
+    "SEO guides for PhD thesis writing, Scopus paper publication, EB-1A visa, R&D projects, and abroad PhD admissions.",
+  path: "/blogs"
+});
 
 export default function BlogsPage() {
   return (

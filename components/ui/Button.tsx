@@ -11,11 +11,11 @@ type LinkButtonProps = ComponentPropsWithoutRef<typeof Link> & {
 };
 
 const baseStyles =
-  "inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2";
+  "inline-flex items-center justify-center gap-2 rounded-[8px] px-6 py-3 text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2";
 
 const variants = {
   primary:
-    "bg-cta-gradient text-white shadow-soft hover:shadow-card hover:-translate-y-0.5",
+    "bg-slate-950 text-white shadow-soft hover:bg-primary-600 hover:shadow-card hover:-translate-y-0.5",
   outline:
     "border border-slate-200 bg-white text-slate-900 hover:border-primary-500 hover:text-primary-600 hover:-translate-y-0.5"
 };

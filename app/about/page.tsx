@@ -44,11 +44,11 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="relative mx-auto w-full max-w-md">
-            <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-primary-100 via-white to-slate-100" />
+            <div className="absolute inset-0 -z-10 rounded-[8px] bg-gradient-to-br from-primary-100 via-white to-slate-100" />
             <img
               src="/svgs/1.svg"
               alt="Abstract academic illustration"
-              className="h-auto w-full rounded-3xl p-6"
+              className="h-auto w-full rounded-[8px] p-6"
               style={{
                 borderRadius:10
               }}

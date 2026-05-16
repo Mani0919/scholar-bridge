@@ -36,10 +36,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="rounded-2xl border border-slate-100 bg-white/80 p-8 shadow-card"
+          className="rounded-[8px] border border-slate-100 bg-white/80 p-6 shadow-card sm:p-8"
         >
           <div className="space-y-6">
-            <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-soft">
+            <div className="rounded-[8px] border border-slate-100 bg-white p-6 shadow-soft">
               <p className="text-sm font-semibold text-slate-900">
                 1200+ successful publications
               </p>
@@ -47,13 +47,13 @@ export function Hero() {
                 Scopus, Springer, IEEE, and top-tier international journals.
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-soft">
+            <div className="rounded-[8px] border border-slate-100 bg-white p-6 shadow-soft">
               <p className="text-sm font-semibold text-slate-900">Dedicated PhD advisors</p>
               <p className="text-sm text-slate-500">
                 Personalized guidance for admission strategy, SOPs, and LORs.
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-soft">
+            <div className="rounded-[8px] border border-slate-100 bg-white p-6 shadow-soft">
               <p className="text-sm font-semibold text-slate-900">Zero plagiarism policy</p>
               <p className="text-sm text-slate-500">
                 Multi-layer checks for originality, citation accuracy, and quality.

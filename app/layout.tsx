@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
+import { site } from "@/lib/site";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const poppins = Poppins({
@@ -13,11 +15,12 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: "The Paper Publications | Research Journals & Articles",
+    default:
+      "The Paper Publications | PhD Research, Publication & EB-1A Visa Services in India",
     template: "%s | The Paper Publications"
   },
   description:
-    "Publish and explore peer-reviewed research journals, academic papers, and scholarly articles with The Paper Publications.",
+    "Expert PhD thesis writing, Scopus paper publication, R&D projects, PhD admissions, and EB-1A visa services. Get free consultation today!",
   keywords: [
     "research journals",
     "academic papers",
@@ -28,7 +31,7 @@ export const metadata: Metadata = {
     "research paper publication platform",
     "The Paper Publications"
   ],
-  metadataBase: new URL("https://thepaperpublications.com"),
+  metadataBase: new URL(site.url),
   alternates: {
     canonical: "/"
   },
@@ -41,17 +44,19 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "The Paper Publications | Research Journals & Articles",
+    title:
+      "The Paper Publications | PhD Research, Publication & EB-1A Visa Services in India",
     description:
       "Publish and explore peer-reviewed research journals, academic papers, and scholarly articles.",
-    url: "https://thepaperpublications.com",
+    url: site.url,
     siteName: "The Paper Publications",
     locale: "en_US",
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Paper Publications | Research Journals & Articles",
+    title:
+      "The Paper Publications | PhD Research, Publication & EB-1A Visa Services in India",
     description:
       "Publish and explore peer-reviewed research journals, academic papers, and scholarly articles."
   }
@@ -68,6 +73,7 @@ export default function RootLayout({
         <div className="min-h-screen bg-white text-slate-900">
           <Navbar />
           <main>{children}</main>
+          <WhatsAppFloat />
           <Footer />
         </div>
       </body>

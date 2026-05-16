@@ -46,7 +46,7 @@ export function ImageCarousel() {
 
   return (
     <section className="px-6 py-14 sm:px-10 lg:px-16">
-      <div className="grid items-center gap-8 rounded-3xl bg-slate-50 p-8 lg:grid-cols-[1.1fr_1.4fr]">
+      <div className="grid items-center gap-8 rounded-[8px] bg-slate-50 p-5 sm:p-8 lg:grid-cols-[1.1fr_1.4fr]">
         <div className="space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary-600">
             Featured Highlights
@@ -62,20 +62,20 @@ export function ImageCarousel() {
             <button
               type="button"
               onClick={() => setIndex((prev) => (prev - 1 + count) % count)}
-              className="rounded-full border border-slate-200 px-4 py-2 text-sm text-slate-700 transition hover:border-slate-300 hover:bg-white"
+              className="rounded-[8px] border border-slate-200 px-4 py-2 text-sm text-slate-700 transition hover:border-slate-300 hover:bg-white"
             >
               Previous
             </button>
             <button
               type="button"
               onClick={() => setIndex((prev) => (prev + 1) % count)}
-              className="rounded-full border border-slate-200 px-4 py-2 text-sm text-slate-700 transition hover:border-slate-300 hover:bg-white"
+              className="rounded-[8px] border border-slate-200 px-4 py-2 text-sm text-slate-700 transition hover:border-slate-300 hover:bg-white"
             >
               Next
             </button>
           </div>
         </div>
-        <div className="relative overflow-hidden rounded-3xl bg-white shadow-sm">
+        <div className="relative overflow-hidden rounded-[8px] bg-white shadow-sm">
           <div
             className="flex transition-transform duration-700"
             style={{ transform: `translateX(-${index * 100}%)` }}

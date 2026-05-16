@@ -35,10 +35,14 @@ h4 {
 }
 
 .link-underline {
-  background-image: linear-gradient(120deg, rgba(79, 70, 229, 0.4), rgba(124, 58, 237, 0.4));
+  background-image: linear-gradient(120deg, rgba(249, 115, 22, 0.45), rgba(17, 24, 39, 0.28));
   background-size: 100% 0.2em;
   background-position: 0 88%;
   background-repeat: no-repeat;
+}
+
+::selection {
+  background: rgba(249, 115, 22, 0.22);
 }
 
 .text-balance {
@@ -76,4 +80,66 @@ h4 {
 
 .zoom-in-95 {
   animation: slideUpFade 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes homeGradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes softPulse {
+  0%,
+  100% {
+    opacity: 0.42;
+  }
+  50% {
+    opacity: 0.72;
+  }
+}
+
+.home-hero-gradient {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(125deg, #020617 0%, #111827 38%, #7c2d12 70%, #f97316 100%);
+  background-size: 42px 42px, 42px 42px, 220% 220%;
+  animation: homeGradientFlow 13s ease-in-out infinite;
+}
+
+.home-reveal {
+  animation: riseIn 0.7s ease-out both;
+}
+
+.home-reveal-delay-1 {
+  animation-delay: 0.12s;
+}
+
+.home-reveal-delay-2 {
+  animation-delay: 0.24s;
+}
+
+.home-reveal-delay-3 {
+  animation-delay: 0.36s;
+}
+
+.home-sheen {
+  animation: softPulse 3.8s ease-in-out infinite;
 }

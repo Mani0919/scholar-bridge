@@ -1,10 +1,15 @@
 import Link from "next/link";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { site } from "@/lib/site";
 
 const quickLinks = [
-  { href: "/services", label: "Services" },
-  { href: "/about", label: "About" },
+  { href: "/", label: "Home" },
+  { href: "/phd-services", label: "PhD Services" },
+  { href: "/rd-projects", label: "R&D Projects" },
+  { href: "/phd-admissions", label: "PhD Admissions" },
+  { href: "/eb1a", label: "EB-1A" },
+  { href: "/contact", label: "Contact" },
   { href: "/blogs", label: "Blogs" },
-  { href: "/contact", label: "Contact" }
 ];
 
 export function Footer() {
@@ -14,9 +19,8 @@ export function Footer() {
         <div className="space-y-4">
           <div className="text-lg font-semibold text-slate-900">The Paper Publications</div>
           <p className="text-sm text-slate-600">
-            Premium academic services for researchers, scholars, and institutions.
-            We combine human expertise with rigorous quality checks for global
-            publication success.
+            PhD research, publication, R&D project, admission, and EB-1A visa
+            support for scholars and researchers across India and abroad.
           </p>
         </div>
         <div className="space-y-3">
@@ -32,9 +36,32 @@ export function Footer() {
         <div className="space-y-3">
           <p className="text-sm font-semibold text-slate-900">Contact</p>
           <div className="space-y-2 text-sm text-slate-600">
-            <p>researchpublication381@gmail.com</p>
-            <p>+91 85198 54871</p>
-            <p>Global delivery with 24/7 academic coordination.</p>
+            <p>
+              <a href={`mailto:${site.email}`} className="hover:text-primary-600">
+                {site.email}
+              </a>
+            </p>
+            <p>
+              <a href={site.phoneHref} className="hover:text-primary-600">
+                {site.phone}
+              </a>
+            </p>
+            <p>
+              <a href={site.whatsapp} className="hover:text-primary-600">
+                WhatsApp consultation
+              </a>
+            </p>
+            <div className="flex gap-3 pt-2 text-slate-500">
+              <a href="#" aria-label="LinkedIn" className="hover:text-primary-600">
+                <Linkedin size={18} />
+              </a>
+              <a href="#" aria-label="Facebook" className="hover:text-primary-600">
+                <Facebook size={18} />
+              </a>
+              <a href="#" aria-label="Instagram" className="hover:text-primary-600">
+                <Instagram size={18} />
+              </a>
+            </div>
           </div>
         </div>
       </div>

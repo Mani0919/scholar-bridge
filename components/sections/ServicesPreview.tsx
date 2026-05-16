@@ -56,7 +56,7 @@ export function ServicesPreview() {
           <motion.div key={service.slug} variants={item} className="h-full">
             <Link href={`/services/${service.slug}`} className="group relative flex h-full items-stretch outline-none">
               {/* Outer hover glow */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary-200/50 via-slate-100/20 to-accent-200/50 opacity-0 blur-xl transition-all duration-500 group-hover:opacity-100" />
+              <div className="absolute inset-0 rounded-[8px] bg-gradient-to-br from-primary-200/50 via-slate-100/20 to-accent-200/50 opacity-0 blur-xl transition-all duration-500 group-hover:opacity-100" />
               
               <Card className="relative flex h-full w-full flex-col overflow-hidden border border-slate-200/50 bg-white/70 backdrop-blur-xl transition-all duration-500 group-hover:-translate-y-1 group-hover:border-primary-200/60 group-hover:bg-white/95 group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)]">
                 {/* Abstract shape */}

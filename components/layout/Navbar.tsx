@@ -18,6 +18,7 @@ const navLinks = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const currentPath = pathname ?? "/";
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -63,7 +64,9 @@ export function Navbar() {
           <nav className="hidden items-center gap-0.5 lg:flex">
             {navLinks.map((link) => {
               const isActive =
-                link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+                link.href === "/"
+                  ? currentPath === "/"
+                  : currentPath.startsWith(link.href);
               return (
                 <Link
                   key={link.href}
@@ -152,7 +155,9 @@ export function Navbar() {
 
               {navLinks.map((link) => {
                 const isActive =
-                  link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+                  link.href === "/"
+                    ? currentPath === "/"
+                    : currentPath.startsWith(link.href);
                 return (
                   <Link
                     key={link.href}

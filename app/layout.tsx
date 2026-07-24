@@ -33,6 +33,10 @@ export const metadata: Metadata = {
     "The Paper Publications"
   ],
   metadataBase: new URL(site.url),
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png"
+  },
   verification: {
     other: {
       "facebook-domain-verification": "4i80zpopcanx9qh6jx810lepye9neo"
@@ -57,14 +61,23 @@ export const metadata: Metadata = {
     url: site.url,
     siteName: "The Paper Publications",
     locale: "en_US",
-    type: "website"
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "The Paper Publications"
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
     title:
       "The Paper Publications | PhD Research, Publication & EB-1A Visa Services in India",
     description:
-      "Publish and explore peer-reviewed research journals, academic papers, and scholarly articles."
+      "Publish and explore peer-reviewed research journals, academic papers, and scholarly articles.",
+    images: ["/opengraph-image.png"]
   }
 };
 

@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { GraduationCap, Menu, Phone, Sparkles, X } from "lucide-react";
+import { Menu, Phone, Sparkles, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { site } from "@/lib/site";
 
@@ -49,16 +50,19 @@ export function Navbar() {
         <div className="h-[3px] w-full bg-gradient-to-r from-slate-950 via-primary-500 to-slate-950" />
 
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:px-6 xl:px-8">
-          <Link href="/" className="flex shrink-0 items-center gap-2">
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[8px] bg-slate-950 text-primary-400 shadow-md">
-              <GraduationCap size={16} />
-            </span>
-            <span className="hidden text-[0.9rem] font-bold tracking-tight text-slate-950 lg:block">
-              The Paper <span className="text-primary-600">Publications</span>
-            </span>
-            <span className="text-[0.9rem] font-bold tracking-tight text-slate-950 lg:hidden">
-              TPP
-            </span>
+          <Link
+            href="/"
+            aria-label="The Paper Publications home"
+            className="flex shrink-0 items-center"
+          >
+            <Image
+              src="/brand/the-paper-publications-logo.png"
+              alt="The Paper Publications"
+              width={1000}
+              height={632}
+              priority
+              className="h-11 w-auto sm:h-12"
+            />
           </Link>
 
           <nav className="hidden items-center gap-0.5 lg:flex">
@@ -128,14 +132,16 @@ export function Navbar() {
             <Link
               href="/"
               onClick={() => setOpen(false)}
-              className="flex items-center gap-2"
+              aria-label="The Paper Publications home"
+              className="flex items-center"
             >
-              <span className="flex h-8 w-8 items-center justify-center rounded-[8px] bg-slate-950 text-primary-400">
-                <GraduationCap size={16} />
-              </span>
-              <span className="text-sm font-bold text-slate-950">
-                The Paper <span className="text-primary-600">Publications</span>
-              </span>
+              <Image
+                src="/brand/the-paper-publications-logo.png"
+                alt="The Paper Publications"
+                width={1000}
+                height={632}
+                className="h-12 w-auto"
+              />
             </Link>
             <button
               type="button"

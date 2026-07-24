@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import { site } from "@/lib/site";
@@ -17,7 +18,19 @@ export function Footer() {
     <footer className="border-t border-slate-100 bg-slate-50 px-6 py-12 sm:px-10 lg:px-16">
       <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr_1fr]">
         <div className="space-y-4">
-          <div className="text-lg font-semibold text-slate-900">The Paper Publications</div>
+          <Link
+            href="/"
+            aria-label="The Paper Publications home"
+            className="inline-block"
+          >
+            <Image
+              src="/brand/the-paper-publications-logo.png"
+              alt="The Paper Publications"
+              width={1000}
+              height={632}
+              className="h-auto w-44"
+            />
+          </Link>
           <p className="text-sm text-slate-600">
             PhD research, publication, R&D project, admission, and EB-1A visa
             support for scholars and researchers across India and abroad.

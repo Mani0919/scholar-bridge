@@ -38,12 +38,21 @@ export function pageMetadata({
       description,
       url,
       siteName: site.name,
-      type: "website"
+      type: "website",
+      images: [
+        {
+          url: "/opengraph-image.png",
+          width: 1200,
+          height: 630,
+          alt: site.name
+        }
+      ]
     },
     twitter: {
       card: "summary_large_image",
       title,
-      description
+      description,
+      images: ["/opengraph-image.png"]
     }
   };
 }

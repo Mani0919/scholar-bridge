@@ -1,6 +1,7 @@
 import { CheckCircle } from "lucide-react";
 import { LeadForm } from "@/components/sections/LeadForm";
 import { StatsBanner } from "@/components/sections/StatsBanner";
+import { FeatureVideo } from "@/components/ui/FeatureVideo";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
@@ -75,23 +76,29 @@ export default function PhdServicesPage() {
   return (
     <div>
       <section className="bg-slate-50 px-6 py-16 sm:px-10 lg:px-16">
-        <div className="max-w-4xl space-y-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary-600">
-            PhD Services
-          </p>
-          <h1 className="text-4xl font-semibold text-slate-900">
-            Expert PhD Services - Thesis Writing, Publication & Research Support
-          </h1>
-          <p className="text-sm text-slate-600">
-            Complete PhD support from topic selection and proposal writing to
-            Scopus publication, thesis writing, editing, formatting, and proofreading.
-          </p>
-          <a
-            href="#consultation-form"
-            className="inline-flex rounded-[8px] bg-primary-500 px-5 py-3 text-sm font-semibold text-white hover:bg-primary-600"
-          >
-            Get Free Consultation
-          </a>
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+          <div className="space-y-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary-600">
+              PhD Services
+            </p>
+            <h1 className="text-4xl font-semibold text-slate-900">
+              Expert PhD Services - Thesis Writing, Publication & Research Support
+            </h1>
+            <p className="text-sm leading-6 text-slate-600">
+              Complete PhD support from topic selection and proposal writing to
+              Scopus publication, thesis writing, editing, formatting, and proofreading.
+            </p>
+            <a
+              href="#consultation-form"
+              className="inline-flex rounded-[8px] bg-primary-500 px-5 py-3 text-sm font-semibold text-white hover:bg-primary-600"
+            >
+              Get Free Consultation
+            </a>
+          </div>
+          <FeatureVideo
+            src="/videos/expert-paper-writing.mp4"
+            label="Expert academic paper writing support"
+          />
         </div>
       </section>
       <StatsBanner />

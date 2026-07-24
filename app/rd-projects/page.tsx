@@ -1,4 +1,5 @@
 import { LeadForm } from "@/components/sections/LeadForm";
+import { FeatureVideo } from "@/components/ui/FeatureVideo";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
@@ -37,17 +38,24 @@ export default function RdProjectsPage() {
   return (
     <div>
       <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-primary-800 px-6 py-16 text-white sm:px-10 lg:px-16">
-        <div className="max-w-4xl space-y-5">
-          <h1 className="text-4xl font-semibold">
-            End-to-End R&D Project Support - Trusted by 1000+ Clients
-          </h1>
-          <p className="text-white/80">
-            From project design to prototype development, data analysis, and
-            publication - we support every stage of your research and development journey.
-          </p>
-          <a href="#consultation-form" className="inline-flex rounded-[8px] bg-primary-500 px-5 py-3 text-sm font-semibold text-white hover:bg-primary-600">
-            Start Your R&D Project
-          </a>
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+          <div className="space-y-5">
+            <h1 className="text-4xl font-semibold">
+              End-to-End R&D Project Support - Trusted by 1000+ Clients
+            </h1>
+            <p className="text-white/80">
+              From project design to prototype development, data analysis, and
+              publication - we support every stage of your research and development journey.
+            </p>
+            <a href="#consultation-form" className="inline-flex rounded-[8px] bg-primary-500 px-5 py-3 text-sm font-semibold text-white hover:bg-primary-600">
+              Start Your R&D Project
+            </a>
+          </div>
+          <FeatureVideo
+            src="/videos/research-project-planning.mp4"
+            label="Research project planning and data analysis"
+            className="ring-1 ring-white/15"
+          />
         </div>
       </section>
       <section className="px-6 py-16 sm:px-10 lg:px-16">

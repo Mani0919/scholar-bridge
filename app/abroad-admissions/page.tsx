@@ -1,4 +1,5 @@
 import { LeadForm } from "@/components/sections/LeadForm";
+import { FeatureVideo } from "@/components/ui/FeatureVideo";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
@@ -57,6 +58,10 @@ export default function AbroadAdmissionsPage() {
               We help Indian scholars apply for PhD programs in the USA, UK,
               Canada, Australia, Germany, France, Singapore, and 50+ countries.
             </p>
+            <FeatureVideo
+              src="/videos/campus-sunrise.mp4"
+              label="International university campus"
+            />
           </div>
           <div id="application-form">
             <LeadForm

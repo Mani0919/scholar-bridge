@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/Card";
 import { StatsBanner } from "@/components/sections/StatsBanner";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { CTA } from "@/components/sections/CTA";
+import { FeatureVideo } from "@/components/ui/FeatureVideo";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
@@ -130,6 +131,33 @@ export default function HomePage() {
       <StatsBanner />
 
       <section className="px-6 py-16 sm:px-10 lg:px-16">
+        <div className="mx-auto grid max-w-7xl items-center gap-8 rounded-[8px] border border-slate-200 bg-slate-50 p-5 sm:p-8 lg:grid-cols-[1.15fr_0.85fr]">
+          <FeatureVideo
+            src="/videos/paper-publications.mp4"
+            label="The Paper Publications research and writing overview"
+          />
+          <div className="space-y-4 lg:pl-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary-600">
+              Research to Publication
+            </p>
+            <h2 className="text-3xl font-semibold text-slate-900">
+              Turn your research into publication-ready work
+            </h2>
+            <p className="text-sm leading-7 text-slate-600">
+              Work with experienced academic specialists through planning,
+              writing, analysis, journal selection, submission, and revisions.
+            </p>
+            <Link
+              href="/phd-services"
+              className="inline-flex rounded-[8px] bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+            >
+              See How We Support You
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-16 sm:px-10 lg:px-16">
         <div className="space-y-3">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary-600">
             Services
